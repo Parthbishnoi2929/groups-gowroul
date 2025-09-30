@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"> <!-- Defaulting to dark theme for a futuristic feel -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Associations | GOWROUL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Styles for a Futuristic & Formal UI */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9FAFB; /* Light mode background */
+            color: #065f46; /* Light mode text changed to dark green */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Dark Mode Styles */
+        .dark body {
+            background-color: #0d1117;
+            color: #E5E7EB;
+        }
+        
+        .dark .glass-card {
+            background: rgba(31, 41, 55, 0.4); /* Darker, more translucent */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .brand-card {
+            background-color: #161b22;
+            border-color: #30363d;
+        }
+
+        .dark .brand-card:hover {
+            border-color: #4c82f7;
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .dark .filter-btn.active {
+            background-color: #4c82f7;
+            color: #ffffff;
+        }
+        
+        .dark .filter-btn {
+            background-color: #21262d;
+            border-color: #30363d;
+        }
+        
+        .dark .filter-btn:hover {
+            background-color: #30363d;
+        }
+
+        /* Header & Navigation */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 5%;
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        .header-scrolled {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid #E5E7EB;
+        }
+        
+        .dark .header-scrolled {
+            background-color: rgba(13, 17, 23, 0.7);
+            border-bottom: 1px solid #30363d;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4c82f7;
+        }
+
+        /* Hero Section */
+        .page-header {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.9); /* Made brighter for light mode */
+            z-index: -1;
+            transition: filter 0.5s ease;
+        }
+
+        .dark .page-header-bg {
+            filter: brightness(0.4); /* Kept dark for dark mode */
+        }
+        
+        /* Brand Card Styling */
+        .brand-card {
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform;
+            border-width: 1px;
+            border-color: #E5E7EB; /* Light mode border */
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #4c82f7;
+            box-shadow: 0 10px 30px -10px rgba(76, 130, 247, 0.3);
+        }
+
+        .brand-card img {
+            transition: transform 0.3s ease;
+        }
+
+        .brand-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .brand-card .view-collection {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .brand-card:hover .view-collection {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .brand-tag {
+            background-color: rgba(76, 130, 247, 0.1);
+            color: #4c82f7;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 500;
+        }
+        
+        /* Filtering UI */
+        .filter-btn {
+            transition: background-color 0.2s ease, color 0.2s ease;
+            will-change: background-color;
+        }
+        
+        .filter-btn.active {
+             background-color: #4c82f7;
+             color: #ffffff;
+        }
+        
+        /* Hide/Show animation for filtering */
+        .brand-card.hidden {
+            transform: scale(0.9);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <header class="main-header flex items-center justify-between">
+        <a href="index.html" class="logo flex items-center space-x-2 text-2xl font-bold tracking-wider">
+    <img src="images/indeximages/index/GGC LOGO-01.png" alt="Gowroul Logo" class="h-8 w-8 object-contain">
+    <span>GOWROUL</span>
+    </a>
+        <nav class="nav-links hidden md:flex items-center space-x-8">
+            <a href="index.html" class="relative font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Home</a>
+            <a href="about.html" class="relative font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">About Us</a>
+            <a href="Associations.html" class="relative active font-medium text-blue-500 dark:text-blue-400">Associations</a>
+            <a href="Originator.html" class="relative font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Originator</a>
+            <a href="contact.html" class="relative font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-800" title="Toggle light/dark mode">
+            <!-- Sun icon, visible in dark mode -->
+            <svg class="h-6 w-6 hidden dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.106a.75.75 0 010 1.06l-1.591 1.59a.75.75 0 11-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM17.894 17.894a.75.75 0 011.06 0l1.59 1.591a.75.75 0 11-1.06 1.06l-1.59-1.59a.75.75 0 010-1.06zM12 18.75a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM4.106 17.894a.75.75 0 010 1.06l-1.59 1.591a.75.75 0 11-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zM2.25 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM6.106 6.106a.75.75 0 011.06 0l1.591 1.59a.75.75 0 01-1.06 1.06l-1.59-1.59a.75.75 0 010-1.06z"></path></svg>
+            <!-- Moon icon, visible in light mode -->
+            <svg class="h-6 w-6 dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-3.51 1.713-6.625 4.332-8.518a.75.75 0 01.819.162z" clip-rule="evenodd"></path></svg>
+        </button>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="page-header-bg"></div>
+            <div class="relative z-10 px-4 mt-12 mb-4 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight animate-header-title text-green-800 dark:text-white">Our Brand Portfolio</h1>
+                <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-green-900/80 dark:text-gray-300 animate-header-subtitle">A curated collection of fashion's finest, from timeless luxury to avant-garde design.</p>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <!-- Filtering Controls -->
+                <div id="filter-controls" class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+                    <button class="filter-btn active font-medium py-2 px-5 rounded-full border" data-filter="all">All Brands</button>
+                </div>
+
+                <!-- Brand Grid -->
+                <div id="brand-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                    
+                    <!-- Brand Card 1 -->
+                     <div class="brand-card rounded-xl p-6 flex flex-col" data-category="avant-garde">
+                        <div class="overflow-hidden rounded-md mb-6 aspect-video">
+                           <img src="images/indeximages/index/GCC LOGO WITH BG-01.jpg" alt="Gowroul Group of Consulting Logo" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-2xl font-semibold mb-2">Gowroul Group of Consulting</h4>
+                        <p class="dark:text-gray-400 mb-4 flex-grow">Pioneering growth with creative, future-ready consulting strategies.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="brand-tag">Experimental</span>
+                        </div>
+                    </div>
+                    
+
+                    <!-- Brand Card 2 -->
+                    <div class="brand-card rounded-xl p-6 flex flex-col" data-category="avant-garde">
+                        <div class="overflow-hidden rounded-md mb-6 aspect-video">
+                           <img src="images/indeximages/index/TASTIRA BRAND LOGO-01.jpg" alt="Tastira Logo" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-2">Tastira</h3>
+                        <p class="dark:text-gray-400 mb-4 flex-grow">Ethnic roots, contemporary flair, weaving elegance-every piece tells a story of culture and grace.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="brand-tag">Contemporary</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Brand Card 3 -->
+                    <div class="brand-card rounded-xl p-6 flex flex-col" data-category="streetwear">
+                        <div class="overflow-hidden rounded-md mb-6 aspect-video">
+                           <img src="images/indeximages/index/Kamlie logo-01.png" alt="Kamlie Logo" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-2">Kamlie</h3>
+                        <p class="dark:text-gray-400 mb-4 flex-grow">Minimal effort, maximum impact, Co-ords that elevate your everyday with curated perfection.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="brand-tag">Experimental</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Brand Card 4 -->
+                    <div class="brand-card rounded-xl p-6 flex flex-col" data-category="owned">
+                        <div class="overflow-hidden rounded-md mb-6 aspect-video">
+                           <img src="images/indeximages/index/White bg Final logo GGC.png" alt="GGC Denim Logo" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-2">GGC Denim</h3>
+                        <p class="dark:text-gray-400 mb-4 flex-grow">Rugged. Reliable. Remarkable.-style that adapts to your lifestyle, day in and day out.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                           <span class="brand-tag">Experimental</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Brand Card 5 -->
+                    <div class="brand-card rounded-xl p-6 flex flex-col" data-category="luxury">
+                        <div class="overflow-hidden rounded-md mb-6 aspect-video">
+                            <img src="images/indeximages/index/FINAL POLONOX LOGO (JPG).jpg" alt="Polonox Logo" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-2">Polonox</h3>
+                        <p class="dark:text-gray-400 mb-4 flex-grow">Redefining modern luxury-designed with precision fits and premium fabrics.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="brand-tag">Contemporary</span>
+                        </div>
+                    </div>
+
+                    <!-- Brand Card 6 -->
+                    <div class="brand-card rounded-xl p-6 flex flex-col" data-category="streetwear">
+                        <div class="overflow-hidden rounded-md mb-6 aspect-video">
+                           <img src="images/indeximages/index/MOCHAMIST.png" alt="Mochamist Logo" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-2">Mochamist</h3>
+                        <p class="dark:text-gray-400 mb-4 flex-grow">Bold flavors, rich traditions-curated to deliver an authentic coffee experience.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="brand-tag">Arabica</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-gray-100 dark:bg-gray-900/50 py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div class="footer-column">
+                <h3 class="text-lg font-semibold mb-3">GOWROUL Group</h3>
+                <p class="text-sm dark:text-gray-400">Redefining excellence in the apparel and fashion industry with strategic consulting and innovative solutions.</p>
+            </div>
+            <div class="footer-column">
+                <h3 class="text-lg font-semibold mb-3">Contact Info</h3>
+                <p class="text-sm dark:text-gray-400"> 📍15/16, Nandakam, 13th Cross,Bangalore - 560066</p><br>
+                <p class="text-sm dark:text-gray-400">✉️ info@gowroulgroup.com</p>
+            </div>
+            <div class="footer-column">
+                <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
+                <ul class="text-sm space-y-2">
+                    <li><a href="index.html" class="dark:text-gray-400 hover:text-blue-500">Home</a></li>
+                    <li><a href="about.html" class="dark:text-gray-400 hover:text-blue-500">About</a></li>
+                    <li><a href="brands.html" class="dark:text-gray-400 hover:text-blue-500">Our Brands</a></li>
+                    <li><a href="associations.html" class="dark:text-gray-400 hover:text-blue-500">Associations</a></li>
+                    <li><a href="contact.html" class="dark:text-gray-400 hover:text-blue-500">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-xs dark:text-gray-400">
+            <p>© 2025 Gowroul Group of Companies. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Theme Toggling ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlEl = document.documentElement;
+
+            // On page load, check for saved theme in localStorage
+            if (localStorage.getItem('theme') === 'light') {
+                htmlEl.classList.remove('dark');
+            } else {
+                htmlEl.classList.add('dark');
+            }
+
+            // Add click listener to the theme toggle button
+            themeToggle.addEventListener('click', () => {
+                htmlEl.classList.toggle('dark');
+                // Save the user's preference in localStorage
+                if (htmlEl.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // --- Header Scroll Effect ---
+            const header = document.querySelector('.main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            });
+
+            // --- GSAP Animations ---
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Animate hero text
+            gsap.from(".animate-header-title", { duration: 1, y: 30, opacity: 0, ease: "power3.out", delay: 0.2 });
+            gsap.from(".animate-header-subtitle", { duration: 1, y: 30, opacity: 0, ease: "power3.out", delay: 0.4 });
+            
+            // Animate filter buttons
+            gsap.from(".filter-btn", {
+                scrollTrigger: {
+                    trigger: "#filter-controls",
+                    start: "top 80%",
+                },
+                duration: 0.8,
+                y: 20,
+                opacity: 0,
+                stagger: 0.1,
+                ease: "power3.out"
+            });
+
+            // Animate brand cards
+            gsap.from(".brand-card", {
+                scrollTrigger: {
+                    trigger: "#brand-grid",
+                    start: "top 80%",
+                },
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                stagger: 0.15,
+                ease: "power3.out"
+            });
+
+            // --- Brand Filtering Logic ---
+            const filterControls = document.getElementById('filter-controls');
+            const brandCards = document.querySelectorAll('.brand-card');
+
+            filterControls.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'BUTTON') return;
+
+                const filterValue = e.target.dataset.filter;
+
+                // Update active button state
+                filterControls.querySelector('.active').classList.remove('active');
+                e.target.classList.add('active');
+
+                // Show/hide cards
+                brandCards.forEach(card => {
+                    if (filterValue === 'all' || card.dataset.category === filterValue) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+                
+                // Re-run scrolltrigger to account for layout changes
+                ScrollTrigger.refresh();
+            });
+        });
+    </script>
+</body>
+</html>
+
