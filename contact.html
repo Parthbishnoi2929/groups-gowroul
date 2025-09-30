@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark"> <!-- Defaulting to dark theme -->
-<head>
+<html lang="en" class="dark"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | GOWROUL</title>
@@ -12,7 +11,7 @@
         /* Base & Theme Styles */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F9FAFB; /* Light mode background */
+            background-color: #0d1117; /* Light mode background */
             color: #065f46; /* Light mode text */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -145,7 +144,6 @@
         <section class="py-16 md:py-24">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                    <!-- Contact Info Column -->
                     <div class="contact-info-col">
                         <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Let's Connect</h2>
                         <p class="dark:text-gray-400 mb-8 max-w-lg">We are here to answer any questions you may have. Reach out to us and we will respond as soon as we can. For partnership inquiries or press relations, please specify in your message.</p>
@@ -170,10 +168,18 @@ Bangalore, Karnataka - 560068</p>
                                     <p class="dark:text-gray-400">info@gowroulgroup.com</p>
                                 </div>
                             </div>
+                            <div class="flex items-start gap-4 mt-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-pink-100 dark:bg-pink-900/50 rounded-lg flex items-center justify-center">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=64x64&data=https://instagram.com/your_instagram_id" alt="Instagram QR" class="w-10 h-10" />
+                            </div>
+                            <div>
+                            <h3 class="font-semibold text-lg">Instagram</h3>
+                             <p class="dark:text-gray-400">@your_instagram_id</p>
+                            </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Contact Form Column -->
                     <div class="contact-form-col bg-white dark:bg-gray-900/50 p-8 rounded-xl shadow-lg dark:shadow-2xl">
                         <form id="contact-form" class="space-y-6">
                             <div>
@@ -212,13 +218,14 @@ Bangalore, Karnataka - 560068</p>
                 <p class="text-sm dark:text-gray-400"> 📍15/16, Nandakam, 13th Cross,Bangalore - 560066</p><br>
                 <p class="text-sm dark:text-gray-400">✉️ info@gowroulgroup.com</p>
             </div>
+            
             <div class="footer-column">
                 <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
                 <ul class="text-sm space-y-2">
                     <li><a href="index.html" class="dark:text-gray-400 hover:text-blue-500">Home</a></li>
                     <li><a href="about.html" class="dark:text-gray-400 hover:text-blue-500">About</a></li>
-                    <li><a href="brands.html" class="dark:text-gray-400 hover:text-blue-500">Our Brands</a></li>
-                    <li><a href="associations.html" class="dark:text-gray-400 hover:text-blue-500">Associations</a></li>
+                    <li><a href="Associations.html" class="dark:text-gray-400 hover:text-blue-500">Associations</a></li>
+                    <li><a href="Originator.html" class="dark:text-gray-400 hover:text-blue-500">Originator</a></li>
                     <li><a href="contact.html" class="dark:text-gray-400 hover:text-blue-500">Contact</a></li>
                 </ul>
             </div>
@@ -299,14 +306,15 @@ Bangalore, Karnataka - 560068</p>
             });
         });
         //form submission to google sheets info
+        
         const scriptURL = "https://script.google.com/macros/s/AKfycbygSw7wvFh7hW6CT7wTukvmquEozYC6vH9bqWugwgjT9LFDHPSWaitGjUZY8yrSLL6y/exec"; // paste your deployed web app URL here
-  const form = document.getElementById("contact-form");
-  const feedback = document.getElementById("form-feedback");
+        const form = document.getElementById("contact-form");
+        const feedback = document.getElementById("form-feedback");
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+        form.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-    const formData = {
+        const formData = {
       name: form.name.value,
       email: form.email.value,
       subject: form.subject.value,
@@ -326,6 +334,6 @@ Bangalore, Karnataka - 560068</p>
         feedback.innerHTML = `<p class="text-red-600 font-medium mt-4">❌ Error: ${err.message}</p>`;
       });
   });
-    </script>
+</script>
 </body>
 </html>
