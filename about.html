@@ -58,6 +58,22 @@
             height: 2px;
             background-color: #4c82f7;
         }
+        /* For mobile menu links */
+#mobile-nav.mobile-links-horizontal {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem; /* spacing between items */
+    flex-wrap: wrap; /* wrap if too long */
+}
+
+#mobile-nav.mobile-links-horizontal .mobile-link::after {
+    content: '|';
+    margin-left: 0.5rem;
+}
+
+#mobile-nav.mobile-links-horizontal .mobile-link:last-child::after {
+    content: ''; /* remove '|' for last item */
+}
 
         /* Page Header with Parallax Effect */
         .page-hero-section {
@@ -330,6 +346,7 @@ const mobileNav = document.getElementById('mobile-nav');
 
 mobileMenuBtn.addEventListener('click', () => {
   mobileNav.classList.toggle('hidden');
+   mobileNav.classList.toggle('mobile-links-horizontal');
 });
 
     </script>

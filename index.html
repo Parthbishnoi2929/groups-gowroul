@@ -40,6 +40,23 @@
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid #E5E7EB;
         }
+/* For mobile menu links */
+#mobile-nav.mobile-links-horizontal {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem; /* spacing between items */
+    flex-wrap: wrap; /* wrap if too long */
+}
+
+#mobile-nav.mobile-links-horizontal .mobile-link::after {
+    content: '|';
+    margin-left: 0.5rem;
+}
+
+#mobile-nav.mobile-links-horizontal .mobile-link:last-child::after {
+    content: ''; /* remove '|' for last item */
+}
+
         
         .dark .header-scrolled {
             background-color: rgba(13, 17, 23, 0.7);
@@ -538,6 +555,7 @@ const mobileNav = document.getElementById('mobile-nav');
 
 mobileMenuBtn.addEventListener('click', () => {
   mobileNav.classList.toggle('hidden');
+   mobileNav.classList.toggle('mobile-links-horizontal');
 });
 
 
