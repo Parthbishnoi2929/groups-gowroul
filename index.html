@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark"> <!-- Defaulting to dark theme -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +8,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* Base & Theme Styles */
+        /* Base Styles - Warm White Light Mode */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117;
-            color: #065f46; /* Light mode: dark green */
+            font-family: 'Poppins', serif;
+            background-color: #FFF8F0;
+            color: #3D3D3D;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
-        .dark body {
-            background-color: #0d1117;
-            color: #E5E7EB; /* Dark mode: light gray */
-        }
         
-        /* Header & Navigation */
+        /* Header & Navigation - Dark Brown */
         .main-header {
             position: fixed;
             top: 0;
@@ -32,35 +30,14 @@
             z-index: 1000;
             padding: 1rem 5%;
             transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+            background-color: #66463fd7;
         }
 
         .header-scrolled {
-            background-color: #0d1117(255, 255, 255, 0.7);
+            background-color: rgba(83, 56, 51, 0.924);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid #E5E7EB;
-        }
-/* For mobile menu links */
-#mobile-nav.mobile-links-horizontal {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem; /* spacing between items */
-    flex-wrap: wrap; /* wrap if too long */
-}
-
-#mobile-nav.mobile-links-horizontal .mobile-link::after {
-    content: '|';
-    margin-left: 0.5rem;
-}
-
-#mobile-nav.mobile-links-horizontal .mobile-link:last-child::after {
-    content: ''; /* remove '|' for last item */
-}
-
-        
-        .dark .header-scrolled {
-            background-color: rgba(13, 17, 23, 0.7);
-            border-bottom: 1px solid #30363d;
+            border-bottom: 1px solid #5D4037;
         }
 
         .nav-links a.active::after {
@@ -71,6 +48,52 @@
             width: 100%;
             height: 2px;
             background-color: #4c82f7;
+        }
+
+        /* Mobile Menu Styles */
+        #mobile-nav {
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            #mobile-nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #4E342E;
+                flex-direction: column !important;
+                padding: 1.5rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+                display: flex;
+            }
+            
+            #mobile-nav.hidden {
+                display: none;
+            }
+            
+            #mobile-nav a {
+                padding: 0.75rem 0;
+                text-align: center;
+                border-bottom: 1px solid #5D4037;
+                display: block;
+                width: 100%;
+            }
+            
+            #mobile-nav a:last-child {
+                border-bottom: none;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            #mobile-nav {
+                display: flex !important;
+                flex-direction: row;
+                position: static;
+                background: transparent;
+                padding: 0;
+                box-shadow: none;
+            }
         }
 
         /* Hero Section */
@@ -96,17 +119,17 @@
             transform: scale(1.05);
             will-change: opacity, transform;
             transition: opacity 1.5s ease-in-out;
-            z-index: 1; /* Base layer */
+            z-index: 1;
         }
 
         #hero-bg-slider .slide.active {
             opacity: 1;
             transform: scale(1);
-            transition: opacity 1.5s ease-in-out, transform 6s linear; /* Apply both transitions when active */
+            transition: opacity 1.5s ease-in-out, transform 6s linear;
         }
 
         #hero-bg-slider .slide.top {
-            z-index: 2; /* Layer that transitions on top */
+            z-index: 2;
         }
         
         /* Horizontal Scroll Gallery */
@@ -114,24 +137,24 @@
             height: 400px;
             overflow-x: scroll;
             overflow-y: hidden;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
         .horizontal-scroll-container::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, and Opera */
+            display: none;
         }
 
         .scroll-track .gallery-image {
-        width: 400px;        /* same width for all */
-        height: 400px;       /* fixed height for all */
-        flex-shrink: 0;
-        overflow: hidden;
-        border-radius: 0.75rem;
-        transition: transform 0.3s ease-out;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #0d1117; /* Light gray background */
+            width: 400px;
+            height: 400px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF;
         }
 
         .scroll-track .gallery-image:hover {
@@ -144,7 +167,6 @@
             object-fit: cover;
         }
 
-        /* Fades on edges to indicate scrollability */
         .glimpse-section::before,
         .glimpse-section::after {
             content: '';
@@ -158,17 +180,11 @@
 
         .glimpse-section::before {
             left: 0;
-            background: linear-gradient(to right, #0d1117, transparent);
+            background: linear-gradient(to right, #FFF8F0, transparent);
         }
         .glimpse-section::after {
             right: 0;
-            background: linear-gradient(to left, #0d1117, transparent);
-        }
-        .dark .glimpse-section::before {
-            background: linear-gradient(to right, #0d1117, transparent);
-        }
-        .dark .glimpse-section::after {
-            background: linear-gradient(to left, #0d1117, transparent);
+            background: linear-gradient(to left, #FFF8F0, transparent);
         }
 
         /* Enhanced Expertise Section */
@@ -192,40 +208,75 @@
             transition: background-color 0.3s, transform 0.3s;
         }
         .progress-dot.is-active {
-            background-color: rgb(210, 210, 210);
+            background-color: #8B4513;
             transform: scale(1.25);
+        }
+
+        /* Typography - Brown Headings */
+        .heading-text {
+            font-family: 'Playfair Display', serif;
+            color: #6B4423;
+        }
+
+        .main-heading {
+            font-family: 'Playfair Display', serif;
+            color: #8B4513;
+        }
+
+        .content-text {
+            font-family: 'Poppins', sans-serif;
+            color: #4A4A4A;
+        }
+
+        /* Expertise Section Background */
+        .expertise-section {
+            background-color: #FFFAF5;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #F5EDE3;
+        }
+
+        .footer-text {
+            color: #5D5D5D;
+        }
+
+        .footer-heading {
+            color: #6B4423;
+        }
+
+        .footer-link {
+            color: #8B6F47;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #6B4423;
         }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
     <header class="main-header flex items-center justify-between">
-    <a href="index.html" class="logo flex items-center space-x-2 text-2xl font-bold tracking-wider">
-    <img src="images/indeximages/index/GGC LOGO-01.png" alt="Gowroul Logo" class="h-8 w-8 object-contain">
-    <span>GOWROUL</span>
-    </a>
-     <button id="mobile-menu-toggle" class="md:hidden text-gray-300 focus:outline-none">
-    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-         viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"/>
-    </svg>
-  </button>
-        <nav id="mobile-nav" class="hidden md:flex flex-col md:flex-row md:space-x-8 
-       absolute md:static top-16 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent 
-       text-center md:text-left p-6 md:p-0 space-y-4 md:space-y-0">
-            <a href="index.html" class="relative active font-medium text-blue-500 dark:text-blue-400">Home</a>
-            <a href="about.html" class="relative font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">About Us</a>
-            <a href="Associations.html" class="relative font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Association</a>
-            <a href="Originator.html" class="relative font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Originator</a>
-            <a href="contact.html" class="relative font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Contact</a>
-        </nav>
-        <button id="theme-toggle" class="theme-toggle p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-800" title="Toggle light/dark mode">
-            <svg class="h-6 w-6 hidden dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.106a.75.75 0 010 1.06l-1.591 1.59a.75.75 0 11-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM17.894 17.894a.75.75 0 011.06 0l1.59 1.591a.75.75 0 11-1.06 1.06l-1.59-1.59a.75.75 0 010-1.06zM12 18.75a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM4.106 17.894a.75.75 0 010 1.06l-1.59 1.591a.75.75 0 11-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zM2.25 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM6.106 6.106a.75.75 0 011.06 0l1.591 1.59a.75.75 0 01-1.06 1.06l-1.59-1.59a.75.75 0 010-1.06z"></path></svg>
-            <svg class="h-6 w-6 dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-3.51 1.713-6.625 4.332-8.518a.75.75 0 01.819.162z" clip-rule="evenodd"></path></svg>
+        <a href="index.html" class="logo flex items-center space-x-2 text-2xl font-bold tracking-wider">
+            <img src="images/indeximages/index/GGC LOGO-01.png" alt="Gowroul Logo" class="h-8 w-8 object-contain">
+            <span class="text-white">GOWROUL</span>
+        </a>
+        <button id="mobile-menu-toggle" class="md:hidden text-gray-300 focus:outline-none">
+            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
         </button>
-
-        
+        <nav id="mobile-nav" class="hidden md:flex md:flex-row md:space-x-8">
+            <a href="index.html" class="relative active font-medium text-blue-400">Home</a>
+            <a href="about.html" class="relative font-medium text-gray-300 hover:text-blue-400 transition-colors">About Us</a>
+            <a href="Associations.html" class="relative font-medium text-gray-300 hover:text-blue-400 transition-colors">Association</a>
+            <a href="Originator.html" class="relative font-medium text-gray-300 hover:text-blue-400 transition-colors">Originator</a>
+            <a href="contact.html" class="relative font-medium text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
+        </nav>
     </header>
 
     <main>
@@ -233,10 +284,10 @@
         <section class="hero-section">
             <div id="hero-bg-slider" class="absolute top-0 left-0 w-full h-full z-[-1] overflow-hidden"></div>
             <div class="container mx-auto px-4 relative z-10 text-center">
-                <h1 class="text-4xl md:text-7xl font-bold tracking-tight leading-tight animate-hero-title">GOWROUL GROUP <br> of COMPANIES</h1>
+                <h1 class="text-4xl md:text-7xl font-bold tracking-tight leading-tight animate-hero-title" style="font-family: 'Dream Avenue', serif;">GOWROUL GROUP <br> of COMPANIES</h1>
                 <p class="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-gray-200 animate-hero-subtitle">We are a collective of visionaries, strategists, and creators dedicated to building the iconic brands of tomorrow.</p>
                 <div class="mt-10 animate-hero-cta">
-                    <a href="Associations.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition-transform transform hover:scale-105 inline-block">Explore Our Brands</a>
+                    <a href="Associations.html" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-3 px-8 rounded-full transition-transform transform hover:scale-105 inline-block">Explore Our Brands</a>
                 </div>
             </div>
         </section>
@@ -244,76 +295,73 @@
         <!-- About/Intro Section -->
         <section class="py-20 md:py-32">
             <div class="container mx-auto px-4 text-center">
-                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight animate-section-title">Where Vision Meets Vogue</h2>
-                 <p class="mt-4 max-w-3xl mx-auto text-lg dark:text-gray-400 animate-section-p"><strong>GOWROUL</strong> is more than just a business enterprise; Through <strong>Gowroul Consulting Company</strong>, a proud subsidiary of GGC, We fuel brands with strategic clarity, operational efficiency, and data-powered insights. From inventory mastery to sales forecasting, pricing hacks to supply chain wizardry, and brand positioning magic ✨—we make sure every brand unlocks next-level growth and smooth market dominance. 📊</p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight animate-section-title heading-text">Where Vision Meets Vogue</h2>
+                <p class="mt-4 max-w-4xl mx-auto text-lg content-text animate-section-p"><strong>GOWROUL</strong> is more than just a business enterprise; Through <strong>Gowroul Consulting Company</strong>, a proud subsidiary of GGC, We fuel brands with strategic clarity, operational efficiency, and data-powered insights. From inventory mastery to sales forecasting, pricing hacks to supply chain wizardry, and brand positioning magic—we make sure every brand unlocks next-level growth and smooth market dominance.</p>
             </div>
         </section>
 
         <!-- Services/Expertise Section -->
-        <section class="expertise-section bg-gray-100 dark:bg-black/20">
+        <section class="expertise-section">
             <div class="container mx-auto px-4 pt-20 pb-10 md:pt-32 md:pb-16 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight animate-section-title color-black-5000" style="color: black;">Brand Incubation</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg dark:text-gray-400 animate-section-p color-black-5000" style="color: black;">We nurture concepts into powerful brands, cultivating growth with strategy, creativity, and precision.</p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight animate-section-title main-heading">Brand Incubation</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg content-text animate-section-p">We nurture concepts into powerful brands, cultivating growth with strategy, creativity, and precision.</p>
             </div>
             
-            <!-- This container provides the scroll height for the pinning effect -->
             <div class="expertise-pinned-container h-[350vh] relative hidden md:block"> 
                 <div class="expertise-progress fixed top-1/2 right-8 -translate-y-1/2 z-50 flex-col gap-4 hidden md:flex">
-                    <div class="progress-dot h-3 w-3 rounded-full bg-white/50"></div>
-                    <div class="progress-dot h-3 w-3 rounded-full bg-white/50"></div>
-                    <div class="progress-dot h-3 w-3 rounded-full bg-white/50"></div>
-                    <div class="progress-dot h-3 w-3 rounded-full bg-white/50"></div>
+                    <div class="progress-dot h-3 w-3 rounded-full bg-amber-200"></div>
+                    <div class="progress-dot h-3 w-3 rounded-full bg-amber-200"></div>
+                    <div class="progress-dot h-3 w-3 rounded-full bg-amber-200"></div>
+                    <div class="progress-dot h-3 w-3 rounded-full bg-amber-200"></div>
                 </div>
-                <!-- This div is what gets pinned to the screen -->
                 <div class="expertise-sticky-content sticky top-0 h-screen w-full overflow-hidden"> 
                     <!-- Step 1 -->
                     <div class="expertise-step absolute inset-0">
                         <img src="images/indeximages/index/anna-keibalo-c18U5be9lIA-unsplash.jpg" class="step-image absolute inset-0 w-full h-full object-cover brightness-60" alt="Fashion sketches and designs">
                         <div class="relative h-full w-full flex items-center justify-center p-8">
-                            <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center">Concept & Identity</h3>
+                            <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center" style="font-family: 'Playfair Display', serif;">Concept & Identity</h3>
                         </div>
                     </div>
                     <!-- Step 2 -->
                     <div class="expertise-step absolute inset-0">
                         <img src="images/indeximages/index/tastira.png" class="step-image absolute inset-0 w-full h-full object-cover brightness-60 top-7" alt="Designer working on a sewing machine">
                         <div class="relative h-full w-full flex items-center justify-center p-8">
-                           <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center">Tastira</h3>
+                           <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center" style="font-family: 'Playfair Display', serif;">Tastira</h3>
                         </div>
                     </div>
                     <!-- Step 3 -->
                     <div class="expertise-step absolute inset-0">
                        <img src="images/indeximages/index/Group2.png" class="step-image absolute inset-0 w-full h-full object-cover brightness-60" alt="Model posing for a fashion campaign">
                        <div class="relative h-full w-full flex items-center justify-center p-8">
-                           <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center">Kamlie</h3>
+                           <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center" style="font-family: 'Playfair Display', serif;">Kamlie</h3>
                         </div>
                     </div>
                     <!-- Step 4 -->
                     <div class="expertise-step absolute inset-0">
                        <img src="images/indeximages/index/WhatsApp Image 2025-10-01 at 15.04.39_b12bf918.jpg" class="step-image absolute inset-0 w-full h-full object-cover brightness-40" alt="Global fashion event on a runway">
                        <div class="relative h-full w-full flex items-center justify-center p-8">
-                           <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center"></h3>
+                           <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center" style="font-family: 'Playfair Display', serif;"></h3>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Mobile static view -->
-             <div class="md:hidden space-y-8 px-4 pb-16">
+            <div class="md:hidden space-y-8 px-4 pb-16">
                 <div class="relative h-64 rounded-lg overflow-hidden flex items-center justify-center p-4 text-center">
-                     <img src="images/indeximages/index/anna-keibalo-c18U5be9lIA-unsplash.png" class="absolute inset-0 w-full h-full object-cover brightness-50" alt="Fashion sketches and designs">
-                     <h3 class="relative text-white text-3xl font-bold">Concept & Identity</h3>
-                </div>
-                 <div class="relative h-64 rounded-lg overflow-hidden flex items-center justify-center p-4 text-center">
-                     <img src="images/indeximages/index/tastira.png" class="absolute inset-0 w-full h-full object-cover brightness-50" alt="Designer working on a sewing machine">
-                     <h3 class="relative text-white text-3xl font-bold">Tastira</h3>
-                </div>
-                 <div class="relative h-64 rounded-lg overflow-hidden flex items-center justify-center p-4 text-center">
-                     <img src="images/indeximages/index/Group2.png" class="absolute inset-0 w-full h-full object-cover brightness-50" alt="Model posing for a fashion campaign">
-                     <h3 class="relative text-white text-3xl font-bold">Kamlie</h3>
+                    <img src="images/indeximages/index/anna-keibalo-c18U5be9lIA-unsplash.jpg" class="absolute inset-0 w-full h-full object-cover brightness-50" alt="Fashion sketches and designs">
+                    <h3 class="relative text-white text-3xl font-bold" style="font-family: 'Playfair Display', serif;">Concept & Identity</h3>
                 </div>
                 <div class="relative h-64 rounded-lg overflow-hidden flex items-center justify-center p-4 text-center">
-                     <img src="images/indeximages/index/GCC LOGO WITH BG-01.jpg" class="absolute inset-0 w-full h-full object-cover brightness-50" alt="Global fashion event on a runway">
-                     
+                    <img src="images/indeximages/index/tastira.png" class="absolute inset-0 w-full h-full object-cover brightness-50" alt="Designer working on a sewing machine">
+                    <h3 class="relative text-white text-3xl font-bold" style="font-family: 'Playfair Display', serif;">Tastira</h3>
+                </div>
+                <div class="relative h-64 rounded-lg overflow-hidden flex items-center justify-center p-4 text-center">
+                    <img src="images/indeximages/index/Group2.png" class="absolute inset-0 w-full h-full object-cover brightness-50" alt="Model posing for a fashion campaign">
+                    <h3 class="relative text-white text-3xl font-bold" style="font-family: 'Playfair Display', serif;">Kamlie</h3>
+                </div>
+                <div class="relative h-64 rounded-lg overflow-hidden flex items-center justify-center p-4 text-center">
+                    <img src="images/indeximages/index/GCC LOGO WITH BG-01.jpg" class="absolute inset-0 w-full h-full object-cover brightness-50" alt="Global fashion event on a runway">
                 </div>
             </div>
         </section>
@@ -321,44 +369,44 @@
         <!-- Horizontal Scrolling Gallery -->
         <section class="glimpse-section relative py-20 md:py-24 overflow-hidden">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight animate-section-title">Our Upcoming World</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg dark:text-gray-400 animate-section-p">Explore the aesthetics and stories that define our portfolio of brands.</p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight animate-section-title main-heading">Our Upcoming World</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg content-text animate-section-p">Explore the aesthetics and stories that define our portfolio of brands.</p>
             </div>
             <div class="horizontal-scroll-container mt-16">
                 <div class="scroll-track flex gap-4 md:gap-8 px-4 md:px-[5vw]">
                     <div class="gallery-image"><img src="images/indeximages/index/FASHNROBE(1).png" alt="Fashion item 3"></div>
                     <div class="gallery-image"><img src="images/indeximages/index/FINAL GGC LOGO (leather).png" alt="Fashion item 4"></div>
-                    <div class="gallery-image "><img src="images/indeximages/index/FINAL POLONOX LOGO (JPG).jpg" alt="Fashion item 5"></div>
+                    <div class="gallery-image"><img src="images/indeximages/index/FINAL POLONOX LOGO (JPG).jpg" alt="Fashion item 5"></div>
                     <div class="gallery-image"><img src="images/indeximages/index/MOCHAMIST.png" alt="Fashion item 6"></div>
                 </div>
             </div>
         </section>
     </main>
     
-    <footer class="bg-gray-100 dark:bg-gray-900/50 py-12">
+    <footer class="py-12">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
             <div class="footer-column">
-                <h3 class="text-lg font-semibold mb-3" style="font-family: 'Lato', sans-serif;color: #0d1117;">GOWROUL Group</h3>
-                <p class="text-sm dark:text-black-1000" style="color: #0d1117;">Redefining excellence in the apparel and fashion industry with strategic consulting and innovative solutions.</p>
+                <h3 class="text-lg font-semibold mb-3 footer-heading">GOWROUL Group</h3>
+                <p class="text-sm footer-text">Redefining excellence in the apparel and fashion industry with strategic consulting and innovative solutions.</p>
             </div>
             <div class="footer-column">
-                <h3 class="text-lg font-semibold mb-3" style="color: #0d1117;">Contact Info</h3>
-                <p class="text-sm dark:text-black-1000" style="color: #0d1117;"> 📍VJVM+MP2, 13th Cross Rd, Pappya Reddy Layout, Garvebhavi Palya, Bengaluru, Karnataka 560068</p><br>
-                <p class="text-sm dark:text-black-1000" style="color: #0d1117;"> ✉️ info@gowroulgroup.com</p>
+                <h3 class="text-lg font-semibold mb-3 footer-heading">Contact Info</h3>
+                <p class="text-sm footer-text mb-2"> 📍VJVM+MP2, 13th Cross Rd, Pappya Reddy Layout, Garvebhavi Palya, Bengaluru, Karnataka 560068</p>
+                <p class="text-sm footer-text"> ✉️info@gowroulgroup.com</p>
             </div>
             <div class="footer-column">
-                <h3 class="text-lg font-semibold mb-3" style="color: #0d1117;">Quick Links</h3>
+                <h3 class="text-lg font-semibold mb-3 footer-heading">Quick Links</h3>
                 <ul class="text-sm space-y-2">
-                    <li><a href="index.html" class="dark:text-black-5000 hover:text-black-5000" style="color:black">Home</a></li>
-                    <li><a href="about.html" class="dark:text-black-5000 hover:text-black-5000" style="color:black">About</a></li>
-                    <li><a href="Associations.html" class="dark:text-black-5000 hover:text-black-5000" style="color:black">Associations</a></li>
-                    <li><a href="Originator.html" class="dark:text-black-5000 hover:text-black-5000" style="color:black">Originator</a></li>
-                    <li><a href="contact.html" class="dark:text-black-5000 hover:text-black-5000" style="color:black">Contact</a></li>
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="Associations.html" class="footer-link">Associations</a></li>
+                    <li><a href="Originator.html" class="footer-link">Originator</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
                 </ul>
             </div>
         </div>
-        <div class="mt-8 pt-8 border-t border-gray-200 dark:border-black-5000 text-center text-xs dark:text-black-5000">
-            <p style="color: #0d1117;">© 2025 Gowroul Group of Companies. All rights reserved.</p>
+        <div class="mt-8 pt-8 border-t border-amber-200 text-center text-xs footer-text">
+            <p>© 2025 Gowroul Group of Companies. All rights reserved.</p>
         </div>
     </footer>
     
@@ -366,25 +414,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Theme Toggling ---
-            const themeToggle = document.getElementById('theme-toggle');
-            const htmlEl = document.documentElement;
-
-            if (localStorage.getItem('theme') === 'light') {
-                htmlEl.classList.remove('dark');
-            } else {
-                htmlEl.classList.add('dark');
-            }
-
-            themeToggle.addEventListener('click', () => {
-                htmlEl.classList.toggle('dark');
-                if (htmlEl.classList.contains('dark')) {
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    localStorage.setItem('theme', 'light');
-                }
-            });
-
             // --- Header Scroll Effect ---
             const header = document.querySelector('.main-header');
             window.addEventListener('scroll', () => {
@@ -395,12 +424,20 @@
                 }
             });
 
+            // --- Mobile Menu Toggle ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.classList.toggle('hidden');
+            });
+
             // --- Hero Background Slider ---
             const heroSlider = document.getElementById('hero-bg-slider');
             const imageUrls = [
                 'images/indeximages/index/1.png',
                 'images/indeximages/index/2.png',
-                'images/indeximages/index/clement-vatte-SL2g8Ry_Ozs-unsplash.jpg',/* replace*/
+                'images/indeximages/index/clement-vatte-SL2g8Ry_Ozs-unsplash.jpg',
                 'images/indeximages/index/denim.png',
                 'images/indeximages/index/group1.png',
                 'images/indeximages/index/clay-banks-BINv7gkpcfo-unsplash.jpg'
@@ -472,7 +509,7 @@
             let lastActiveIndex = -1;
 
             if (expertiseSteps.length > 1 && window.matchMedia("(min-width: 768px)").matches) {
-                gsap.set(expertiseSteps, { autoAlpha: 0 }); // Hide all steps initially
+                gsap.set(expertiseSteps, { autoAlpha: 0 });
 
                 const expertiseTimeline = gsap.timeline({
                     scrollTrigger: {
@@ -486,7 +523,6 @@
                             const activeIndex = Math.floor(progress * stepsCount);
 
                             if (activeIndex !== lastActiveIndex && activeIndex < stepsCount) {
-                                // Update active classes for steps
                                 expertiseSteps.forEach((step, i) => {
                                     if (i === activeIndex) {
                                         step.classList.add('is-active');
@@ -494,7 +530,6 @@
                                         step.classList.remove('is-active');
                                     }
                                 });
-                                // Update active classes for dots
                                 progressDots.forEach((dot, i) => {
                                      if (i === activeIndex) {
                                         dot.classList.add('is-active');
@@ -504,7 +539,6 @@
                                 });
                                 lastActiveIndex = activeIndex;
                             } else if (progress === 1) {
-                                // Ensure last dot is active at the very end
                                 expertiseSteps.forEach(s => s.classList.remove('is-active'));
                                 expertiseSteps[stepsCount-1].classList.add('is-active');
                                 progressDots.forEach(d => d.classList.remove('is-active'));
@@ -514,7 +548,7 @@
                     }
                 });
 
-                expertiseTimeline.to({}, {duration: 1}); // Empty tween to give the timeline a duration
+                expertiseTimeline.to({}, {duration: 1});
 
                 expertiseSteps.forEach((step, i) => {
                     const sectionDuration = 1 / expertiseSteps.length;
@@ -548,18 +582,6 @@
                 });
             });
         });
-
-        // Mobile Menu Toggle
-const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-
-mobileMenuBtn.addEventListener('click', () => {
-  mobileNav.classList.toggle('hidden');
-   mobileNav.classList.toggle('mobile-links-horizontal');
-});
-
-
     </script>
 </body>
 </html>
-

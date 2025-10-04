@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark"> <!-- Defaulting to dark theme -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +8,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=The+Seasons&display=swap" rel="stylesheet">
 
     <style>
-        /* Base & Theme Styles */
+        /* Base & Theme Styles - Warm White Light Mode */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d1117;
-            color: #065f46; /* Light mode: dark green */
+            background-color: #FFF8F0;
+            color: #2D2D2D;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
-        .dark body {
-            background-color: #0d1117;
-            color: #E5E7EB; /* Dark mode: light gray */
-        }
         
-        /* Header & Navigation */
+        /* Header & Navigation - Dark Brown */
         .main-header {
             position: fixed;
             top: 0;
@@ -34,19 +33,14 @@
             z-index: 1000;
             padding: 1rem 5%;
             transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-            
+            background-color: #66463fd7;
         }
 
         .header-scrolled {
-            background-color: #0d1117(255, 255, 255, 0.7);
+            background-color: rgba(83, 56, 51, 0.924);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid #E5E7EB;
-        }
-        
-        .dark .header-scrolled {
-            background-color: rgba(13, 17, 23, 0.7);
-            border-bottom: 1px solid #30363d;
+            border-bottom: 1px solid #5D4037;
         }
 
         .nav-links a.active::after {
@@ -58,22 +52,54 @@
             height: 2px;
             background-color: #4c82f7;
         }
-        /* For mobile menu links */
-#mobile-nav.mobile-links-horizontal {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem; /* spacing between items */
-    flex-wrap: wrap; /* wrap if too long */
-}
 
-#mobile-nav.mobile-links-horizontal .mobile-link::after {
-    content: '|';
-    margin-left: 0.5rem;
-}
+        /* Mobile Menu Styles - Keep Dark */
+        #mobile-nav {
+            transition: all 0.3s ease;
+        }
 
-#mobile-nav.mobile-links-horizontal .mobile-link:last-child::after {
-    content: ''; /* remove '|' for last item */
-}
+        /* Mobile menu dropdown */
+        @media (max-width: 768px) {
+            #mobile-nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #4E342E;
+                flex-direction: column !important;
+                padding: 1.5rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+                display: flex;
+            }
+            
+            #mobile-nav.hidden {
+                display: none;
+            }
+            
+            #mobile-nav a {
+                padding: 0.75rem 0;
+                text-align: center;
+                border-bottom: 1px solid #5D4037;
+                display: block;
+                width: 100%;
+            }
+            
+            #mobile-nav a:last-child {
+                border-bottom: none;
+            }
+        }
+        
+        /* Desktop Navigation */
+        @media (min-width: 769px) {
+            #mobile-nav {
+                display: flex !important;
+                flex-direction: row;
+                position: static;
+                background: transparent;
+                padding: 0;
+                box-shadow: none;
+            }
+        }
 
         /* Page Header with Parallax Effect */
         .page-hero-section {
@@ -87,7 +113,7 @@
             background-image: url('images/indeximages/about/volant-TnSFuMHt3zc-unsplash.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* This creates the parallax effect */
+            background-attachment: fixed;
         }
 
         .page-hero-section::before {
@@ -103,19 +129,75 @@
 
         /* Value Cards */
         .value-card {
-            border: 1px solid transparent;
-            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            border: 1px solid #E5D5C5;
+            background-color: #FFFFFF;
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .value-card:hover {
             transform: translateY(-5px);
-            background-color: #1f2937;
-            border-color: #e5e7eb;
+            background-color: #FFF8F0;
+            border-color: #8B6F47;
+            box-shadow: 0 8px 16px rgba(139, 111, 71, 0.15);
         }
 
-        .dark .value-card:hover {
-            background-color: #1f2937;
-            border-color: #30363d;
+        /* Journey Section Text */
+        .journey-text {
+            color: #3D3D3D;
+            line-height: 1.7;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Section Title Colors - Brown */
+        .section-title {
+            color: #ab5f29;
+            font-family: 'The Seasons', serif;
+        }
+
+        .section-subtitle {
+            color: #A0826D;
+        }
+
+        /* Journey Section Background */
+        .journey-section {
+            background-color: #FFFAF5;
+        }
+
+        /* Footer Styles - Warm Light */
+        footer {
+            background-color: #F5EDE3;
+        }
+
+        .footer-text {
+            color: #5D5D5D;
+        }
+
+        .footer-heading {
+            color: #6B4423;
+        }
+
+        .footer-link {
+            color: #8B6F47;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #6B4423;
+        }
+
+        .footer-border {
+            border-color: #D4C4B0;
+        }
+
+        /* Brand heading colors */
+        .brand-heading {
+            color: #6B4423;
+        }
+
+        /* Intro section */
+        .intro-text {
+            color: #4A4A4A;
+            font-family: 'Poppins', sans-serif;
         }
         
     </style>
@@ -123,37 +205,31 @@
 <body class="overflow-x-hidden">
 
     <header class="main-header flex items-center justify-between">
-         <a href="index.html" class="logo flex items-center space-x-2 text-2xl font-bold tracking-wider">
-    <img src="images/indeximages/index/GGC LOGO-01.png" alt="Gowroul Logo" class="h-8 w-8 object-contain">
-    <span>GOWROUL</span>
-    </a>
-    <button id="mobile-menu-toggle" class="md:hidden text-gray-300 focus:outline-none">
-    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none"
-         viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"/>
-    </svg>
-  </button>
-        <nav id="mobile-nav" class="hidden md:flex flex-col md:flex-row md:space-x-8 
-       absolute md:static top-16 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent 
-       text-center md:text-left p-6 md:p-0 space-y-4 md:space-y-0">
-            <a href="index.html" class="relative font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Home</a>
-            <a href="about.html" class="relative active font-medium text-blue-500 dark:text-blue-400">About Us</a>
-            <a href="Associations.html" class="relative font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Associations</a>
-            <a href="Originator.html" class="relative font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Originator</a>
-            <a href="contact.html" class="relative font-medium dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Contact</a>
-        </nav>
-        <button id="theme-toggle" class="theme-toggle p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-800" title="Toggle light/dark mode">
-            <svg class="h-6 w-6 hidden dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.106a.75.75 0 010 1.06l-1.591 1.59a.75.75 0 11-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM17.894 17.894a.75.75 0 011.06 0l1.59 1.591a.75.75 0 11-1.06 1.06l-1.59-1.59a.75.75 0 010-1.06zM12 18.75a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM4.106 17.894a.75.75 0 010 1.06l-1.59 1.591a.75.75 0 11-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zM2.25 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM6.106 6.106a.75.75 0 011.06 0l1.591 1.59a.75.75 0 01-1.06 1.06l-1.59-1.59a.75.75 0 010-1.06z"></path></svg>
-            <svg class="h-6 w-6 dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-3.51 1.713-6.625 4.332-8.518a.75.75 0 01.819.162z" clip-rule="evenodd"></path></svg>
+        <a href="index.html" class="logo flex items-center space-x-2 text-2xl font-bold tracking-wider">
+            <img src="images/indeximages/index/GGC LOGO-01.png" alt="Gowroul Logo" class="h-8 w-8 object-contain">
+            <span class="text-white">GOWROUL</span>
+        </a>
+        <button id="mobile-menu-toggle" class="md:hidden text-gray-300 focus:outline-none">
+            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
         </button>
+        <nav id="mobile-nav" class="hidden md:flex md:flex-row md:space-x-8">
+            <a href="index.html" class="relative font-medium text-gray-300 hover:text-blue-400 transition-colors">Home</a>
+            <a href="about.html" class="relative active font-medium text-blue-400">About Us</a>
+            <a href="Associations.html" class="relative font-medium text-gray-300 hover:text-blue-400 transition-colors">Associations</a>
+            <a href="Originator.html" class="relative font-medium text-gray-300 hover:text-blue-400 transition-colors">Originator</a>
+            <a href="contact.html" class="relative font-medium text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
+        </nav>
     </header>
 
     <main>
         <!-- Page Hero Section -->
         <section class="page-hero-section">
             <div class="container mx-auto px-4 relative z-10 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight animate-hero-title">Our Story</h1>
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight animate-hero-title" style="font-family: 'Cormorant', serif;">Our Story</h1>
                 <p class="mt-4 text-lg md:text-3xl max-w-2xl mx-auto text-gray-200 animate-hero-subtitle" style="font-family: 'Dancing Script', cursive;">Unspoken Glamour, Redefined Daily</p>
             </div>
         </section>
@@ -161,112 +237,113 @@
         <!-- Intro Section -->
         <section class="py-20 md:py-24">
             <div class="container mx-auto px-4 text-center">
-                 <h3 class="text-3xl font-bold text-white mb-6">GOWROUL CONSULTING COMPANY</h3>
-            <p class="mt-4 max-w-3xl mx-auto text-xl dark:text-gray-400 animate-section-p">Founded in 2025, <strong>GOWROUL Consulting Company (GCC)</strong> is dedicated to shaping the future of marketplace growth with strategy, creativity, and precision. 🌍✨ With a focus on innovation, data-driven insights, and sustainable practices, we empower brands to unlock their true potential in competitive markets. At GCC, we don’t just consult—we partner with you to craft success stories built on smarter planning, stronger positioning, and lasting customer impact.</p>        </section>
+                <h3 class="text-3xl font-bold section-title mb-6">GOWROUL CONSULTING COMPANY</h3>
+                <p class="mt-4 max-w-3xl mx-auto text-xl intro-text animate-section-p">Founded in 2025, <strong>GOWROUL Consulting Company (GCC)</strong> is dedicated to shaping the future of marketplace growth with strategy, creativity, and precision. With a focus on innovation, data-driven insights, and sustainable practices, we empower brands to unlock their true potential in competitive markets. At GCC, we don't just consult—we partner with you to craft success stories built on smarter planning, stronger positioning, and lasting customer impact.</p>
+            </div>
+        </section>
 
-        <!-- Journey Section -->
-        <section class="journey-section py-20 md:py-24 bg-gray-50 dark:bg-black/20">
+        <!-- Journey Section - TASTIRA -->
+        <section class="journey-section py-20 md:py-24">
             <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 md:gap-16 items-start">
                 <div class="content-left animate-section-content">
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-blue-600 dark:text-blue-400 mb-6">TASTIRA</h2>
-                    <p class="mb-4 text-lg dark:text-gray-400" style="font-family: sans-serif; color: black;">TASTIRA transcends fashion—it is where tradition meets contemporary elegance. Rooted in India’s rich cultural heritage, each piece is a tribute to artisanal craftsmanship, timeless fabrics, and bold, modern silhouettes. Every garment tells a story—of identity, creativity, and sophistication—reinterpreting classic elements for today’s global fashion landscape. 🌿</p>
-                    <p class="mb-4 text-lg dark:text-gray-400" style="font-family: sans-serif; color: black;">TASTIRA exemplifies our commitment to innovation, sustainability, and thoughtful design. 🌍 By blending age-old techniques with modern trends, we create pieces that are not only stylish and versatile but also meaningful and enduring. From the initial concept to the final stitch, every creation is meticulously curated to reflect individuality, confidence, and a conscious approach to fashion. 💃✨</p>
-                    <p class="mb-4 text-lg dark:text-gray-400" style="font-family: sans-serif; color: black;">Our goal is simple yet powerful: to craft designs that resonate with the modern consumer, honoring the past while embracing the future, and to establish a standard of excellence in apparel that is both ethical and aspirational.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight brand-heading mb-6" style="font-family: 'Raleway', sans-serif;">Tastira</h2>
+                    <p class="mb-4 text-lg journey-text">TASTIRA transcends fashion—it is where tradition meets contemporary elegance. Rooted in India's rich cultural heritage, each piece is a tribute to artisanal craftsmanship, timeless fabrics, and bold, modern silhouettes. Every garment tells a story—of identity, creativity, and sophistication—reinterpreting classic elements for today's global fashion landscape.</p>
+                    <p class="mb-4 text-lg journey-text">TASTIRA exemplifies our commitment to innovation, sustainability, and thoughtful design. By blending age-old techniques with modern trends, we create pieces that are not only stylish and versatile but also meaningful and enduring. From the initial concept to the final stitch, every creation is meticulously curated to reflect individuality, confidence, and a conscious approach to fashion.</p>
+                    <p class="mb-4 text-lg journey-text">Our goal is simple yet powerful: to craft designs that resonate with the modern consumer, honoring the past while embracing the future, and to establish a standard of excellence in apparel that is both ethical and aspirational.</p>
                 </div>
                 <div class="content-right">
-                    <div class="overflow-hidden shadow-2xl">
+                    <div class="overflow-hidden shadow-2xl ">
                         <img src="images/indeximages/index/Gemini_Generated_Image_vjy7s5vjy7s5vjy7.png" alt="Fashion Design Sketches" class="w-full h-[440px] object-cover">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="journey-section py-20 md:py-24 bg-gray-50 dark:bg-black/20">
-  <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-    
-    <!-- Image on Left -->
-    <div class="content-left">
-      <div class="overflow-hidden shadow-4xl">
-        <img src="images/indeximages/index/6.png" alt="Fashion Design Sketches" class="w-full h-[445px] object-contain rounded-lg">
-      </div>
-    </div>
-    
-    <!-- Content on Right -->
-    <div class="content-right animate-section-content">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-blue-600 dark:text-blue-400 mb-6">Kamlie</h2>
-      <p class="mb-4 text-lg dark:text-gray-400" style="font-family: sans-serif; color: black;">
-        Kamlie is a contemporary womenswear brand focused on affordable ethnic and Indo-western styles that seamlessly blend traditional charm with everyday comfort. With breathable fabrics, thoughtful silhouettes, and trendy prints, Kamlie offers a versatile wardrobe for the urban Indian woman. To redefine everyday ethnic and Indowestern wear with timeless co-ord sets that combine comfort, elegance, and conscious craftsmanship for modern Indian women. 🌿
-      </p>
-      <p class="mb-4 text-lg dark:text-gray-400" style="font-family: sans-serif; color: black;">
-        Under the GOWROUL umbrella, Every Kamlie creation celebrates individuality and confidence, allowing women to express their style effortlessly while staying comfortable.💃
-      </p>
-    <p class="mb-4 text-lg dark:text-gray-400" style="font-family: sans-serif; color: black;">
-      ✨ Perfect for work, brunch, or evenings out — Kamlie co-ords blend comfort with timeless elegance.
-    </p>
-    </div>
-  </div>
-</section>
-
+        <!-- Journey Section - Kamlie -->
+        <section class="journey-section py-20 md:py-24">
+            <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+                <!-- Image on Left -->
+                <div class="content-left">
+                    <div class="overflow-hidden shadow-2xl">
+                        <img src="images/indeximages/index/6.png" alt="Fashion Design Sketches" class="w-full h-[440px] object-cover">
+                    </div>
+                </div>
+                
+                <!-- Content on Right -->
+                <div class="content-right animate-section-content">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight brand-heading mb-6" style="font-family: 'Raleway', sans-serif;">Kamlie</h2>
+                    <p class="mb-4 text-lg journey-text">
+                        Kamlie is a contemporary womenswear brand focused on affordable ethnic and Indo-western styles that seamlessly blend traditional charm with everyday comfort. With breathable fabrics, thoughtful silhouettes, and trendy prints, Kamlie offers a versatile wardrobe for the urban Indian woman. To redefine everyday ethnic and Indowestern wear with timeless co-ord sets that combine comfort, elegance, and conscious craftsmanship for modern Indian women.
+                    </p>
+                    <p class="mb-4 text-lg journey-text">
+                        Under the GOWROUL umbrella, Every Kamlie creation celebrates individuality and confidence, allowing women to express their style effortlessly while staying comfortable.
+                    </p>
+                    <p class="mb-4 text-lg journey-text">
+                        Perfect for work, brunch, or evenings out — Kamlie co-ords blend comfort with timeless elegance.
+                    </p>
+                </div>
+            </div>
+        </section>
 
         <!-- Values Section -->
         <section class="values-section py-20 md:py-32">
-          <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center mb-16 animate-section-title">Our Core Values</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-              
-              <div class="value-card text-center p-8 rounded-lg animate-value-card">
-                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900/50 mx-auto mb-6">
-                  <svg class="h-8 w-8 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.543L16.5 21.75l-.398-1.207a3.375 3.375 0 00-2.455-2.456L12.75 18l1.207-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.207a3.375 3.375 0 002.456 2.456L20.25 18l-1.207.398a3.375 3.375 0 00-2.456 2.456z" /></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Artistry</h3>
-                <p class="dark:text-gray-400">We believe in the art of fashion, crafting each piece with meticulous attention to detail and timeless design principles.</p>
-              </div>
-              
-              <div class="value-card text-center p-8 rounded-lg animate-value-card">
-                 <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900/50 mx-auto mb-6">
-                    <svg class="h-8 w-8 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25-2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Quality</h3>
-                <p class="dark:text-gray-400">From sustainable fabrics to expert craftsmanship, we are committed to a standard of quality that endures beyond seasons.</p>
-              </div>
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-center mb-16 animate-section-title section-title">Our Core Values</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <div class="value-card text-center p-8 rounded-lg animate-value-card">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-amber-100 mx-auto mb-6">
+                            <svg class="h-8 w-8 text-amber-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.543L16.5 21.75l-.398-1.207a3.375 3.375 0 00-2.455-2.456L12.75 18l1.207-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.207a3.375 3.375 0 002.456 2.456L20.25 18l-1.207.398a3.375 3.375 0 00-2.456 2.456z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 section-subtitle" style="font-family: 'Raleway', sans-serif;">Artistry</h3>
+                        <p class="journey-text">We believe in the art of fashion, crafting each piece with meticulous attention to detail and timeless design principles.</p>
+                    </div>
+                    
+                    <div class="value-card text-center p-8 rounded-lg animate-value-card ">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-amber-100 mx-auto mb-6">
+                            <svg class="h-8 w-8 text-amber-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25-2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 section-subtitle" style="font-family: 'Raleway', sans-serif;">Quality</h3>
+                        <p class="journey-text">From sustainable fabrics to expert craftsmanship, we are committed to a standard of quality that endures beyond seasons.</p>
+                    </div>
 
-              <div class="value-card text-center p-8 rounded-lg animate-value-card">
-                 <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900/50 mx-auto mb-6">
-                    <svg class="h-8 w-8 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Integrity</h3>
-                <p class="dark:text-gray-400">Our commitment to ethical practices and transparency builds a foundation of trust with our community and clientele.</p>
-              </div>
+                    <div class="value-card text-center p-8 rounded-lg animate-value-card">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-amber-100 mx-auto mb-6">
+                            <svg class="h-8 w-8 text-amber-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 section-subtitle" style="font-family: 'Raleway', sans-serif;">Integrity</h3>
+                        <p class="journey-text">Our commitment to ethical practices and transparency builds a foundation of trust with our community and clientele.</p>
+                    </div>
 
+                </div>
             </div>
-          </div>
         </section>
     </main>
     
-    <footer class="bg-gray-100 dark:bg-gray-900/50 py-12">
+    <footer class="py-12">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
             <div class="footer-column">
-                <h3 class="text-lg font-semibold mb-3" style="color: black;">GOWROUL Group</h3>
-                <p class="text-sm dark:text-black-4000" style="color: black;">Redefining excellence in the apparel and fashion industry with strategic consulting and innovative solutions.</p>
+                <h3 class="text-lg font-semibold mb-3 footer-heading">GOWROUL Group</h3>
+                <p class="text-sm footer-text">Redefining excellence in the apparel and fashion industry with strategic consulting and innovative solutions.</p>
             </div>
             <div class="footer-column">
-                <h3 class="text-lg font-semibold mb-3" style="color: black;">Contact Info</h3>
-                <p class="text-sm dark:text-black-4000" style="color: black;"> 📍VJVM+MP2, 13th Cross Rd, Pappya Reddy Layout, Garvebhavi Palya, Bengaluru, Karnataka 560068</p><br>
-                <p class="text-sm dark:text-black-4000" style="color: black;">✉️ info@gowroulgroup.com</p>
+                <h3 class="text-lg font-semibold mb-3 footer-heading">Contact Info</h3>
+                <p class="text-sm footer-text mb-2"> 📍VJVM+MP2, 13th Cross Rd, Pappya Reddy Layout, Garvebhavi Palya, Bengaluru, Karnataka 560068</p>
+                <p class="text-sm footer-text"> ✉️info@gowroulgroup.com</p>
             </div>
             <div class="footer-column">
-                <h3 class="text-lg font-semibold mb-3" style="color: black;">Quick Links</h3>
+                <h3 class="text-lg font-semibold mb-3 footer-heading">Quick Links</h3>
                 <ul class="text-sm space-y-2">
-                    <li><a href="index.html" class="dark:text-gray-400 hover:text-black-5000" style="color:black">Home</a></li>
-                    <li><a href="about.html" class="dark:text-gray-400 hover:text-black-5000" style="color:black">About</a></li>
-                    <li><a href="Associations.html" class="dark:text-gray-400 hover:text-black-5000" style="color:black">Associations</a></li>
-                    <li><a href="Originator.html" class="dark:text-gray-400 hover:text-black-5000" style="color:black">Originator</a></li>
-                    <li><a href="contact.html" class="dark:text-gray-400 hover:text-black-5000" style="color:black">Contact</a></li>
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="Associations.html" class="footer-link">Associations</a></li>
+                    <li><a href="Originator.html" class="footer-link">Originator</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
                 </ul>
             </div>
         </div>
-        <div class="mt-8 pt-8 border-t border-black-5000 dark:border-black-7000 text-center text-xs dark:text-black-5000">
-            <p style="color: black;">© 2025 Gowroul Group of Companies. All rights reserved.</p>
+        <div class="mt-8 pt-8 border-t footer-border text-center text-xs footer-text">
+            <p>© 2025 Gowroul Group of Companies. All rights reserved.</p>
         </div>
     </footer>
     
@@ -274,25 +351,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Theme Toggling ---
-            const themeToggle = document.getElementById('theme-toggle');
-            const htmlEl = document.documentElement;
-
-            if (localStorage.getItem('theme') === 'light') {
-                htmlEl.classList.remove('dark');
-            } else {
-                htmlEl.classList.add('dark');
-            }
-
-            themeToggle.addEventListener('click', () => {
-                htmlEl.classList.toggle('dark');
-                if (htmlEl.classList.contains('dark')) {
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    localStorage.setItem('theme', 'light');
-                }
-            });
-
             // --- Header Scroll Effect ---
             const header = document.querySelector('.main-header');
             window.addEventListener('scroll', () => {
@@ -303,10 +361,17 @@
                 }
             });
 
+            // --- Mobile Menu Toggle ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.classList.toggle('hidden');
+            });
+
             // --- GSAP Animations ---
             gsap.registerPlugin(ScrollTrigger);
             
-            // --- Page Animations ---
             // Hero
             gsap.from(".animate-hero-title", { duration: 1, y: 50, opacity: 0, ease: "power3.out", delay: 0.2 });
             gsap.from(".animate-hero-subtitle", { duration: 1, y: 50, opacity: 0, ease: "power3.out", delay: 0.4 });
@@ -318,41 +383,32 @@
             });
 
             gsap.from(".animate-section-content", {
-                 scrollTrigger: { trigger: ".animate-section-content", start: "top 85%", toggleActions: "play none none none" },
-                 duration: 0.8, x: -50, opacity: 0, ease: "power3.out"
+                scrollTrigger: { trigger: ".animate-section-content", start: "top 85%", toggleActions: "play none none none" },
+                duration: 0.8, x: -50, opacity: 0, ease: "power3.out"
             });
 
             gsap.from(".animate-section-title", {
-                 scrollTrigger: { trigger: ".animate-section-title", start: "top 85%", toggleActions: "play none none none" },
-                 duration: 0.8, y: 30, opacity: 0, ease: "power3.out"
+                scrollTrigger: { trigger: ".animate-section-title", start: "top 85%", toggleActions: "play none none none" },
+                duration: 0.8, y: 30, opacity: 0, ease: "power3.out"
             });
+            
             gsap.from(".animate-value-card", {
-                 scrollTrigger: { trigger: ".animate-value-card", start: "top 85%", toggleActions: "play none none none" },
-                 duration: 0.6, y: 40, opacity: 0, stagger: 0.2, ease: "power3.out"
+                scrollTrigger: { trigger: ".animate-value-card", start: "top 85%", toggleActions: "play none none none" },
+                duration: 0.6, y: 40, opacity: 0, stagger: 0.2, ease: "power3.out"
             });
 
             // Journey Section Pinning for Desktop
             if (window.matchMedia("(min-width: 768px)").matches) {
                 ScrollTrigger.create({
                     trigger: ".journey-section",
-                    start: "top 20%", // Start pinning when the section is 20% from the top
+                    start: "top 20%",
                     endTrigger: ".content-left",
-                    end: "bottom bottom", // End pinning when the bottom of the text hits the bottom of the viewport
+                    end: "bottom bottom",
                     pin: ".content-right",
                     pinSpacing: false
                 });
             }
         });
-        // Mobile Menu Toggle
-const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-
-mobileMenuBtn.addEventListener('click', () => {
-  mobileNav.classList.toggle('hidden');
-   mobileNav.classList.toggle('mobile-links-horizontal');
-});
-
     </script>
 </body>
 </html>
-
