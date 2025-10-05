@@ -14,7 +14,7 @@
     <style>
         /* Base Styles - Warm White Light Mode */
         body {
-            font-family: 'Poppins', serif;
+            font-family: 'Inter', sans-serif;
             background-color: #FFF8F0;
             color: #3D3D3D;
             -webkit-font-smoothing: antialiased;
@@ -232,6 +232,14 @@
         .expertise-section {
             background-color: #FFFAF5;
         }
+        @keyframes bounceRight {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+.animate-bounce-right {
+  display: inline-block;
+  animation: bounceRight 1s infinite;
+}
 
         /* Footer Styles */
         footer {
@@ -307,8 +315,10 @@
                 <p class="mt-4 max-w-2xl mx-auto text-lg content-text animate-section-p">We nurture concepts into powerful brands, cultivating growth with strategy, creativity, and precision.</p>
             </div>
             
-            <div class="expertise-pinned-container h-[350vh] relative hidden md:block"> 
+            <div class="expertise-pinned-container h-[600vh] relative hidden md:block "> 
                 <div class="expertise-progress fixed top-1/2 right-8 -translate-y-1/2 z-50 flex-col gap-4 hidden md:flex">
+                    <div class="progress-dot h-3 w-3 rounded-full bg-amber-200"></div>
+                    <div class="progress-dot h-3 w-3 rounded-full bg-amber-200"></div>
                     <div class="progress-dot h-3 w-3 rounded-full bg-amber-200"></div>
                     <div class="progress-dot h-3 w-3 rounded-full bg-amber-200"></div>
                     <div class="progress-dot h-3 w-3 rounded-full bg-amber-200"></div>
@@ -317,31 +327,54 @@
                 <div class="expertise-sticky-content sticky top-0 h-screen w-full overflow-hidden"> 
                     <!-- Step 1 -->
                     <div class="expertise-step absolute inset-0">
-                        <img src="images/indeximages/index/anna-keibalo-c18U5be9lIA-unsplash.jpg" class="step-image absolute inset-0 w-full h-full object-cover brightness-60" alt="Fashion sketches and designs">
+                        <img src="images/indeximages/index/anna-keibalo-c18U5be9lIA-unsplash.jpg" class="step-image absolute inset-0 w-full h-full object-cover brightness-75" alt="Fashion sketches and designs">
                         <div class="relative h-full w-full flex items-center justify-center p-8">
                             <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center" style="font-family: 'Playfair Display', serif;">Concept & Identity</h3>
                         </div>
                     </div>
                     <!-- Step 2 -->
                     <div class="expertise-step absolute inset-0">
-                        <img src="images/indeximages/index/tastira.png" class="step-image absolute inset-0 w-full h-full object-cover brightness-60 top-7" alt="Designer working on a sewing machine">
+                        <img src="images/indeximages/index/tastira.png" class="step-image absolute inset-0 w-full h-full object-cover brightness-75" alt="Designer working on a sewing machine">
                         <div class="relative h-full w-full flex items-center justify-center p-8">
-                           <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center" style="font-family: 'Playfair Display', serif;">Tastira</h3>
-                        </div>
+    <img src="images/indeximages/index/TASTIRA BRAND LOGO-01 (1).png" 
+         alt="Concept & Identity Logo" 
+         class="step-heading mx-auto max-h-40 md:max-h-56 object-contain">
+</div>
+
                     </div>
                     <!-- Step 3 -->
                     <div class="expertise-step absolute inset-0">
-                       <img src="images/indeximages/index/Group2.png" class="step-image absolute inset-0 w-full h-full object-cover brightness-60" alt="Model posing for a fashion campaign">
+                       <img src="images/indeximages/index/Group2.png" class="step-image absolute inset-0 w-full h-full object-cover brightness-75" alt="Model posing for a fashion campaign">
                        <div class="relative h-full w-full flex items-center justify-center p-8">
-                           <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center" style="font-family: 'Playfair Display', serif;">Kamlie</h3>
-                        </div>
+    <img src="images/indeximages/index/Kamlie brand tag-01.png" 
+         alt="Concept & Identity Logo" 
+         class="step-heading mx-auto max-h-40 md:max-h-56 object-contain">
+</div>
                     </div>
                     <!-- Step 4 -->
                     <div class="expertise-step absolute inset-0">
-                       <img src="images/indeximages/index/WhatsApp Image 2025-10-01 at 15.04.39_b12bf918.jpg" class="step-image absolute inset-0 w-full h-full object-cover brightness-40" alt="Global fashion event on a runway">
+                       <img src="images/indeximages/index/POLONOX.png" class="step-image absolute inset-0 w-full h-full object-cover brightness-75" alt="Model posing for a fashion campaign">
                        <div class="relative h-full w-full flex items-center justify-center p-8">
-                           <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center" style="font-family: 'Playfair Display', serif;"></h3>
-                        </div>
+    <img src="images/indeximages/index/TEXT POLONOX LOGO-01.png" 
+         alt="Concept & Identity Logo" 
+         class="step-heading mx-auto max-h-24 md:max-h-32 object-contain">
+</div>
+                    </div>
+                    <!-- Step 5 -->
+                    <div class="expertise-step absolute inset-0">
+                       <img src="images/indeximages/index/denim1.png" class="step-image absolute inset-0 w-full h-full object-cover brightness-75" alt="Model posing for a fashion campaign">
+                       <div class="relative h-full w-full flex items-center justify-center p-8">
+    <img src="images/indeximages/index/GGC LOGO-01 (1).png" 
+         alt="Concept & Identity Logo" 
+         class="step-heading mx-auto max-h-40 md:max-h-56 object-contain">
+</div>
+                    </div>
+                    <!-- Step 6 -->
+                    <div class="expertise-step absolute inset-0">
+                       <img src="images/indeximages/index/WhatsApp Image 2025-10-01 at 15.04.39_b12bf918.jpg" class="step-image absolute inset-0 w-full h-full object-cover brightness-60" alt="Global fashion event on a runway">
+                       <!-- <div class="relative h-full w-full flex items-center justify-center p-8"> -->
+                           <!-- <h3 class="step-heading text-white text-4xl md:text-6xl font-bold text-center" style="font-family: 'Playfair Display', serif;">Future Vision</h3> -->
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -354,17 +387,40 @@
                 </div>
                 <div class="relative h-64 rounded-lg overflow-hidden flex items-center justify-center p-4 text-center">
                     <img src="images/indeximages/index/tastira.png" class="absolute inset-0 w-full h-full object-cover brightness-75" alt="Designer working on a sewing machine">
-                    <h3 class="relative text-white text-3xl font-bold" style="font-family: 'Playfair Display', serif;">Tastira</h3>
-                </div>
+<div class="relative h-full w-full flex items-center justify-center p-8">
+    <img src="images/indeximages/index/TASTIRA BRAND LOGO-01 (1).png" 
+         alt="Concept & Identity Logo" 
+         class="step-heading mx-auto max-h-24 md:max-h-32 object-contain">
+</div>                </div>
                 <div class="relative h-64 rounded-lg overflow-hidden flex items-center justify-center p-4 text-center">
                     <img src="images/indeximages/index/Group2.png" class="absolute inset-0 w-full h-full object-cover brightness-75" alt="Model posing for a fashion campaign">
-                    <h3 class="relative text-white text-3xl font-bold" style="font-family: 'Playfair Display', serif;">Kamlie</h3>
-                </div>
-                <div class="relative h-64 rounded-lg overflow-hidden flex items-center justify-center p-4 text-center">
-                    <img src="images/indeximages/index/GCC LOGO WITH BG-01.jpg" class="absolute inset-0 w-full h-full object-contain brightness-75" alt="Global fashion event on a runway">
+ <div class="relative h-full w-full flex items-center justify-center p-8">
+    <img src="images/indeximages/index/Kamlie brand tag-01.png" 
+         alt="Concept & Identity Logo" 
+         class="step-heading mx-auto max-h-24 md:max-h-32 object-contain">
+</div>                </div>
+                 <div class="relative h-64 rounded-lg overflow-hidden flex items-center justify-center p-4 text-center">
+                    <img src="images/indeximages/index/POLONOX.png" class="absolute inset-0 w-full h-full object-cover brightness-75" alt="Model posing for a fashion campaign">
+ <div class="relative h-full w-full flex items-center justify-center p-8">
+    <img src="images/indeximages/index/TEXT POLONOX LOGO-01.png" 
+         alt="Concept & Identity Logo" 
+         class="step-heading mx-auto max-h-24 md:max-h-32 object-contain">
+</div>                </div>
+                 <div class="relative h-64 rounded-lg overflow-hidden flex items-center justify-center p-4 text-center">
+                    <img src="images/indeximages/index/denim1.png" class="absolute inset-0 w-full h-full object-cover brightness-75" alt="Model posing for a fashion campaign">
+ <div class="relative h-full w-full flex items-center justify-center p-8">
+    <img src="images/indeximages/index/GGC LOGO-01 (1).png" 
+         alt="Concept & Identity Logo" 
+         class="step-heading mx-auto max-h-24 md:max-h-32 object-contain">
+</div>                </div>
+                <div class="relative h-64 rounded-lg overflow-hidden flex items-center justify-center text-center">
+                    <img src="images/indeximages/index/WhatsApp Image 2025-10-01 at 15.04.39_b12bf918.jpg" class="absolute inset-0 w-full h-full object-cover brightness-75" alt="Global fashion event on a runway">
+                    <!-- <h3 class="relative text-white text-3xl font-bold" style="font-family: 'Playfair Display', serif;">Future Vision</h3> -->
                 </div>
             </div>
         </section>
+        
+
 
         <!-- Horizontal Scrolling Gallery -->
         <section class="glimpse-section relative py-20 md:py-24 overflow-hidden">
@@ -372,15 +428,47 @@
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight animate-section-title main-heading">Our Upcoming World</h2>
                 <p class="mt-4 max-w-2xl mx-auto text-lg content-text animate-section-p">Explore the aesthetics and stories that define our portfolio of brands.</p>
             </div>
+           <div class="w-full flex justify-end pr-6">
+  <p class="text-2xl text-black animate-bounce-right">
+    →
+  </p>
+</div>
+
             <div class="horizontal-scroll-container mt-16">
                 <div class="scroll-track flex gap-4 md:gap-8 px-4 md:px-[5vw]">
                     <div class="gallery-image"><img src="images/indeximages/index/FASHNROBE(1).png" alt="Fashion item 3"></div>
                     <div class="gallery-image"><img src="images/indeximages/index/FINAL GGC LOGO (leather).png" alt="Fashion item 4"></div>
                     <div class="gallery-image"><img src="images/indeximages/index/FINAL POLONOX LOGO (JPG).jpg" alt="Fashion item 5"></div>
                     <div class="gallery-image"><img src="images/indeximages/index/MOCHAMIST.png" alt="Fashion item 6"></div>
-                </div>
+                </div>  
             </div>
         </section>
+       
+
+        <!-- Partner Brands Section -->
+        <section class="partner-brands-section bg-white">
+    <div class="w-full">
+        <div class="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border-y border-amber-200">
+            <div class="container mx-auto px-4 py-4 md:py-06">
+                <h3 class="text-center text-2xl font-semibold main-heading mb-6">Partnered Brands -PPMP Sellers</h3>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                    <div class="partner-logo-wrapper rounded-lg">
+                        <img src="images/indeximages/index/Screenshot 2025-10-05 193713.png" alt="HRX Logo" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img src="images/indeximages/partners/codezx-logo.png" alt="CodeZX Logo" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img src="images/indeximages/index/arduer.png" alt="Partner Brand 3" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img src="images/indeximages/partners/brand4-logo.png" alt="Partner Brand 4" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     </main>
     
     <footer class="py-12">
@@ -503,7 +591,7 @@
                 }, { passive: false });
             }
 
-            // --- Enhanced Expertise Section Animation ---
+            // --- Enhanced Expertise Section Animation (6 Steps) ---
             const expertiseSteps = gsap.utils.toArray('.expertise-step');
             const progressDots = gsap.utils.toArray('.progress-dot');
             let lastActiveIndex = -1;
@@ -520,9 +608,16 @@
                         onUpdate: self => {
                             const progress = self.progress;
                             const stepsCount = expertiseSteps.length;
-                            const activeIndex = Math.floor(progress * stepsCount);
+                            
+                            // Better calculation to prevent overlap on last images
+                            let activeIndex;
+                            if (progress >= 0.99) {
+                                activeIndex = stepsCount - 1;
+                            } else {
+                                activeIndex = Math.floor(progress * stepsCount);
+                            }
 
-                            if (activeIndex !== lastActiveIndex && activeIndex < stepsCount) {
+                            if (activeIndex !== lastActiveIndex) {
                                 expertiseSteps.forEach((step, i) => {
                                     if (i === activeIndex) {
                                         step.classList.add('is-active');
@@ -538,25 +633,31 @@
                                     }
                                 });
                                 lastActiveIndex = activeIndex;
-                            } else if (progress === 1) {
-                                expertiseSteps.forEach(s => s.classList.remove('is-active'));
-                                expertiseSteps[stepsCount-1].classList.add('is-active');
-                                progressDots.forEach(d => d.classList.remove('is-active'));
-                                progressDots[stepsCount-1].classList.add('is-active');
                             }
                         }
                     }
                 });
 
-                expertiseTimeline.to({}, {duration: 1});
+                // Create timeline with proper spacing
+                const stepDuration = 1; // Each step takes full duration
+                const fadeTransition = 0.15; // Overlap duration for smooth fade
 
                 expertiseSteps.forEach((step, i) => {
-                    const sectionDuration = 1 / expertiseSteps.length;
-                    const sectionStart = i * sectionDuration;
+                    const startTime = i * stepDuration;
+                    const endTime = startTime + stepDuration + fadeTransition;
                     
-                    expertiseTimeline.to(step, { autoAlpha: 1 }, sectionStart);
+                    // Fade in current step
+                    expertiseTimeline.to(step, { 
+                        autoAlpha: 1, 
+                        duration: fadeTransition 
+                    }, startTime);
+                    
+                    // Fade out previous step (if not first)
                     if (i > 0) {
-                       expertiseTimeline.to(expertiseSteps[i - 1], { autoAlpha: 0 }, sectionStart);
+                        expertiseTimeline.to(expertiseSteps[i - 1], { 
+                            autoAlpha: 0, 
+                            duration: fadeTransition 
+                        }, startTime + stepDuration);
                     }
                 });
             }
