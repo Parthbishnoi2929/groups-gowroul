@@ -110,8 +110,9 @@
             position: relative;
             overflow: hidden;
             color: #f7f7f7;
-            background-image: url('images/indeximages/about/pic2.jpg');
-            background-size: cover;
+            /* background-image: url('images/indeximages/about/pic1.jpg');
+            background-image: url('images/indeximages/about/pic2.jpg'); */
+            /* background-size: 600px auto; */
             background-position: center;
             background-attachment: fixed;
         }
@@ -227,12 +228,27 @@
 
     <main>
         <!-- Page Hero Section -->
-        <section class="page-hero-section">
-            <div class="container mx-auto px-4 relative z-10 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight animate-hero-title" style="font-family: 'Cormorant', serif;">Our Story</h1>
-                <p class="mt-4 text-lg md:text-3xl max-w-2xl mx-auto text-gray-200 animate-hero-subtitle" style="font-family: 'Dancing Script', cursive;">Unspoken Glamour, Redefined Daily</p>
-            </div>
-        </section>
+       <section class="page-hero-section relative">
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <img src="images/indeximages/about/pic1.jpg" 
+         alt="Our Story Background" 
+         class="w-full h-full object-cover brightness-75 bg">
+  </div>
+
+  <!-- Foreground content -->
+  <div class="container mx-auto px-4 relative z-10 text-center">
+    <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight animate-hero-title" 
+        style="font-family: 'Cormorant', serif;">
+      Our Story
+    </h1>
+    <p class="mt-4 text-lg md:text-3xl max-w-2xl mx-auto text-gray-200 animate-hero-subtitle" 
+       style="font-family: 'Dancing Script', cursive;">
+      Unspoken Glamour, Redefined Daily
+    </p>
+  </div>
+</section>
+
 
         <!-- Intro Section -->
         <section class="py-20 md:py-24">
